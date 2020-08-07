@@ -7,11 +7,13 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-js"
     testImplementation "org.jetbrains.kotlin:kotlin-test-js"
+    implementation "org.jetbrains.kotlinx:kotlinx-html-js:0.7.1"
 }
 
 kotlin.target.browser { }

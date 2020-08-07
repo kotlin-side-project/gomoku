@@ -1,9 +1,19 @@
+import game.controller.GameController
 import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.HTMLImageElement
 import org.w3c.dom.HTMLPictureElement
 import kotlin.browser.document
 
+val gameController = GameController()
+
 fun main() {
+    document.addEventListener("DOMContentLoaded", { _ ->
+        gameController.mount()
+    })
+    drawDots()
+}
+
+fun drawDots() {
     document.addEventListener("DOMContentLoaded", { _ ->
         val body = document.body!!
 
