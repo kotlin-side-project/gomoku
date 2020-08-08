@@ -1,8 +1,8 @@
-package game.logic
-import game.model.CellState
+package game.model
+
 import kotlin.test.*
 
-internal class GameRountTest {
+internal class GameRoundTest {
     @Test
     fun move() {
         val round = GameRound()

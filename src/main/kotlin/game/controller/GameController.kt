@@ -1,6 +1,6 @@
 package game.controller
 
-import game.logic.GameRound
+import game.model.GameRound
 import game.model.CellChangedEvent
 import game.model.GameEvent
 import game.view.GameView

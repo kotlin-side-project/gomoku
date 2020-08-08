@@ -1,9 +1,4 @@
-package game.logic
-
-import game.model.CellChangedEvent
-import game.model.CellState
-import game.model.GameEvent
-import game.model.GomokuBoard
+package game.model
 
 class GameRound(private val delegate: Delegate? = null) {
     private val board = GomokuBoard(arrayOf(arrayOf(CellState.EMPTY)))
