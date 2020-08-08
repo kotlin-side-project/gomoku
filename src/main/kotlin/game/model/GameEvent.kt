@@ -5,6 +5,8 @@ sealed class GameEvent {
         val row: Int,
         val col: Int,
         val prevState: CellState,
-        val newState: CellState
+        val newState: CellState,
+        val prevPlayer: GamePlayer,
+        val newPlayer: GamePlayer
     ): GameEvent()
 }
