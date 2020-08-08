@@ -1,6 +1,6 @@
 package game.view
 
-import game.model.CellChangedEvent
+import game.model.GameEvent
 import game.model.CellState
 import kotlin.browser.*
 import kotlinx.html.*
@@ -26,7 +26,7 @@ class GameView(private val delegate: Delegate?) {
         }
     }
 
-    fun updateCell(cellChangedEvent: CellChangedEvent) {
+    fun updateCell(cellChangedEvent: GameEvent.CellChanged) {
         element.classList.remove(C.Cell.empty, C.Cell.black, C.Cell.white)
         when (cellChangedEvent.newState) {
             CellState.EMPTY -> element.classList.add(C.Cell.empty)

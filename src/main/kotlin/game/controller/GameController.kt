@@ -1,7 +1,6 @@
 package game.controller
 
 import game.model.GameRound
-import game.model.CellChangedEvent
 import game.model.GameEvent
 import game.view.GameView
 import kotlin.browser.document
@@ -21,7 +20,7 @@ class GameController {
     inner class GameCoreDelegateImpl: GameRound.Delegate {
         override fun handleEvent(event: GameEvent) {
             when (event) {
-                is CellChangedEvent -> {
+                is GameEvent.CellChanged -> {
                     view.updateCell(event)
                 }
             }

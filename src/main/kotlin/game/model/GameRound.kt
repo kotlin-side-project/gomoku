@@ -11,7 +11,7 @@ class GameRound(private val delegate: Delegate? = null) {
             CellState.WHITE -> CellState.EMPTY
         }
         board.table[row][col] = newState
-        delegate?.handleEvent(CellChangedEvent(row, col, prevState, newState))
+        delegate?.handleEvent(GameEvent.CellChanged(row, col, prevState, newState))
     }
 
     fun getCellState(row: Int, col: Int): CellState {
