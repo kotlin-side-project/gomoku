@@ -1,6 +1,6 @@
 package game.controller
 
-import game.logic.GameLogic
+import game.logic.GameRound
 import game.model.CellChangedEvent
 import game.model.GameEvent
 import game.view.GameView
@@ -10,15 +10,15 @@ class GameController {
     private val viewDelegate = GameViewDelegateImpl()
     private val coreDelegate = GameCoreDelegateImpl()
     private val view = GameView(viewDelegate)
-    private val core = GameLogic(coreDelegate)
+    private val round = GameRound(coreDelegate)
 
     inner class GameViewDelegateImpl: GameView.Delegate {
         override fun cellClicked(row: Int, col: Int) {
-            core.move(row, col)
+            round.move(row, col)
         }
     }
 
-    inner class GameCoreDelegateImpl: GameLogic.Delegate {
+    inner class GameCoreDelegateImpl: GameRound.Delegate {
         override fun handleEvent(event: GameEvent) {
             when (event) {
                 is CellChangedEvent -> {

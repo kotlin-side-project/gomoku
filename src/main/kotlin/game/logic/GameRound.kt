@@ -5,7 +5,7 @@ import game.model.CellState
 import game.model.GameEvent
 import game.model.GomokuBoard
 
-class GameLogic(private val delegate: Delegate) {
+class GameRound(private val delegate: Delegate) {
     private val board = GomokuBoard(arrayOf(arrayOf(CellState.EMPTY)))
 
     fun move(row: Int, col: Int) {
