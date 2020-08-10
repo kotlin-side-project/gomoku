@@ -28,6 +28,6 @@ class GameController {
     }
 
     fun mount() {
-        document.querySelector(".root")!!.appendChild(view.element)
+//        document.querySelector(".root")!!.appendChild(view.element)
     }
 }

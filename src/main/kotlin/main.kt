@@ -1,7 +1,5 @@
 import game.controller.GameController
 import org.w3c.dom.HTMLDivElement
-import org.w3c.dom.HTMLImageElement
-import org.w3c.dom.HTMLPictureElement
 import kotlin.browser.document
 
 val gameController = GameController()
@@ -19,50 +17,51 @@ fun drawDots() {
 
         val rect = document.createElement("div") as HTMLDivElement
 
-        rect.style.apply {
-            border = "1px solid black"
-            width = "1020px"
-            height = "1020px"
-            boxSizing = "border-box"
-            display = "flex"
-            flexDirection = "column"
-            alignItems = "center"
-            margin = "25vh auto"
-        }
+        rect.classList.add("rect")
 
-        val picture = document.createElement("picture") as HTMLPictureElement
+        val background = document.createElement("div") as HTMLDivElement
 
-        picture.style.apply {
-            position = "relative"
-        }
+        background.classList.add("background")
 
-        val wood = document.createElement("img") as HTMLImageElement
+        rect.appendChild(background)
 
-        wood.setAttribute("src", "https://pixabay.com/get/57e8d3454c57a814f6d1867dda35367b1c39d9e65251784b_1920.jpg")
-        wood.setAttribute("alt", "wood")
-        wood.style.apply {
-            objectFit = "cover"
-            width = "1020px"
-            height = "1020px"
-        }
+        val playground = document.createElement("div") as HTMLDivElement
 
-        picture.appendChild(wood)
-        rect.appendChild(picture)
+        playground.classList.add("playground")
+
+        rect.appendChild(playground)
 
         for (x in 1..15) {
             for (y in 1..15) {
-                val point = document.createElement("div") as HTMLDivElement
+                val dot = document.createElement("div") as HTMLDivElement
 
-                point.style.apply {
-                    position = "absolute"
-                    top = "${x * 64}px"
-                    left = "${y * 64}px"
-                    height = "4px"
-                    width = "4px"
-                    backgroundColor = "white"
+                dot.classList.add("dot")
+
+                dot.style.apply {
+                    top = "${28 + (x - 1) * 68}px"
+                    left = "${28 + (y - 1) * 68}px"
                 }
 
-                picture.appendChild(point)
+                if (y != 15) {
+                    dot.classList.add("right")
+                }
+
+                if (x != 15) {
+                    dot.classList.add("bottom")
+                }
+
+                background.appendChild(dot)
+
+                val point = document.createElement("div") as HTMLDivElement
+
+                point.classList.add("point")
+
+                point.style.apply {
+                    top = "${14 + (x - 1) * 68}px"
+                    left = "${14 + (y - 1) * 68}px"
+                }
+
+                playground.appendChild(point)
             }
         }
 

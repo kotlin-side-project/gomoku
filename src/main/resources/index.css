@@ -1,3 +1,13 @@
+:root {
+    --gray7: #495057;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
 .cell {
     border: 1px solid black;
     width: 50px;
@@ -11,4 +21,62 @@
 
 .cell__black {
     background-color: black;
+}
+
+.rect {
+    position: relative;
+    width: 1020px;
+    height: 1020px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25vh auto;
+}
+
+.background {
+    height: 1020px;
+    width: 1020px;
+    background-image: url("wood.jpg");
+}
+
+.playground {
+    display: grid;
+    position: fixed;
+    box-sizing: border-box;
+    height: 1020px;
+    width: 1020px;
+    z-index: 10;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 14px;
+}
+
+.dot {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+}
+
+.right::before {
+    position: absolute;
+    height: 1px;
+    width: 68px;
+    content: "";
+    background-color: var(--gray7);
+}
+
+.bottom::after {
+    position: absolute;
+    height: 68px;
+    width: 1px;
+    content: "";
+    background-color: var(--gray7);
+}
+
+.point {
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    background-color: var(--gray7);
+    cursor: pointer;
 }
